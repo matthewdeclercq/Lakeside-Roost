@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root {
+    --main-green: #bc1f1b;
+    --main-green-light: #3a6b54;
+    --main-bg: #f3e7cd;
+    --accent-brown: #d2b48c;
+    --card-radius: 8px;
+    --card-padding: 24px;
+    --card-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    --banner-shadow: 0 2px 16px rgba(0,0,0,0.9);
+    --divider-thickness: 4px;
+    --divider-radius: 2px;
+    --divider-width: 100%;
+    --banner-heading: 'Raleway', cursive;
+    --font-heading: 'Raleway', sans-serif;
+    --font-body: 'Raleway', sans-serif;
+    --font-weight-body: 500;
+    --font-size-body: clamp(14px, 3vw, 16px);
+    --font-size-small: clamp(11px, 2.5vw, 13px);
+    --font-size-banner: 4em;
+    --font-size-banner-mobile: 3em;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Default: no scrolling for desktop */
+    letter-spacing: 0.02em;
+    line-height: 1.3; 
+}
+.page {
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/bg.jpg'); 
+    background-size: cover; /* Cover the entire card */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    background-color: var(--accent-brown); /* light brown */
+    position: relative;
+    overflow: hidden;
+}
+
+.page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.20); /* 10% opacity black */
+    z-index: 0;
+    pointer-events: none;
+}
+.page > * {
+    position: relative;
+    z-index: 1;
+}
+
+.banner {
+    position: absolute;
+    top: 0px;
+    left: 24px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-family: var(--banner-heading);
+    font-size: var(--font-size-banner);
+    text-shadow: var(--banner-shadow);
+}
+.postcard {
+    position: absolute;
+    width: 50vw;
+    max-width: 700px;
+    height: auto;
+    background: rgba(243, 231, 205, 0.7); /* semi-transparent old paper color */
+    box-shadow: var(--card-shadow);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    margin: var(--card-padding);
+    box-sizing: border-box;
+    cursor: move;
+    user-select: none;
+    word-wrap: break-word;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.postcard-divider {
+    border: none;
+    border-top: var(--divider-thickness) solid var(--main-green);
+    width: var(--divider-width);
+    margin: 12px 0 18px 0;
+    border-radius: var(--divider-radius);
+    background: none;
+}
+.postcard h2 {
+    font-family: var(--font-heading);
+    color: var(--main-green);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: clamp(14px, 3.5vw, 18px); /* Dynamic scaling */
+    text-transform: uppercase;
+}
+.postcard h3 {
+    font-family: var(--font-heading);
+    color: #15150F;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: clamp(13px, 3vw, 16px); /* Dynamic scaling */
+    padding: 0;
+}
+.postcard p {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body);
+    color: #15150F;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1rem;
+    text-align: justify;
+}
+.postcard small {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-small);
+    display: block;
+    color: #15150F;
+    padding: 0;
+    line-height: 1.1rem;
+    text-align: justify;
+}
+.postcard li {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+    margin-bottom: 8px; /* Space between list items */
+    font-size: var(--font-size-body);
+    color: #15150F;
+    line-height: 1.1rem;
+    padding-left: 0;
+    text-indent: 0;
+    text-align: justify;
+}
+.postcard ol,
+.postcard ul {
+    padding-left: 1.5em;
+    margin-left: 0;
+}
+a {
+    color: #23395d;
+    text-decoration: underline;
+}
+a:hover, a:focus {
+    color: #15150F;
+}
+.copyable, .copyable * {
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: var(--font-size-body);
+    user-select: text !important;
+    cursor: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    pointer-events: auto !important;
+}
+.postcard img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px; /* Optional: matches card rounding */
+    margin: 0 auto;     /* Optional: center image */
+}
+
+
+
+/* Mobile and small tablet styles */
+@media screen and (max-width: 768px) {
+    body, html {
+        overflow-y: auto; /* Enable scrolling */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    .page {
+        height: auto; /* Allow page to grow with content */
+        padding-bottom: 100px; /* Space for banner */
+    }
+    .page::before {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 0;
+        background: url('images/bg.jpg') center center / cover no-repeat #d2b48c;
+        pointer-events: none;
+    }
+
+    .banner {
+        position: relative;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        margin: 24px auto; 
+        text-align: center;
+        font-size: var(--font-size-banner-mobile); /* Slightly smaller for mobile */
+    }
+    .postcard {
+        position: relative;
+        width: calc(100% - 32px); /* 16px left + 16px right margin */
+        height: auto; 
+        margin: 16px auto; 
+        cursor: default; /* No dragging on mobile */
+        transform: none; /* No rotation */
+        padding: var(--card-padding);
+    }
+    .postcard h2 {
+        font-size: clamp(18px, 4vw, 20px);
+    }
+    .postcard p {
+        font-size: clamp(14px, 3vw, 16px);
+        display: block; 
+        margin: 0;
+        padding: 0;
+        text-align: justify;
+    }
+    .postcard small {
+        font-size: var(--font-size-small);
+        color: #15150F;
+        padding: 0;
+        text-align: justify;
+    }
+    .postcard li {
+        font-size: clamp(14px, 3vw, 16px);
+        padding: 0;
+        text-align: justify;
+    }
+}
