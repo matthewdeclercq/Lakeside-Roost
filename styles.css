@@ -51,10 +51,11 @@ body, html {
     margin: 0 auto 24px auto;
     text-align: center;
     color: var(--background-semi-transparent);
-    backdrop-filter: var(--backgdrop-filter);
     font-family: var(--banner-heading);
     font-size: 3em;
     letter-spacing: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .postcard {
