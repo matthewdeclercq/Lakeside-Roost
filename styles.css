@@ -5,21 +5,14 @@
     --main-green-light: #3a6b54;
     --main-bg: #f3e7cd;
     --accent-brown: #d2b48c;
-    --card-radius: 8px;
-    --card-padding: 24px;
-    --card-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    --banner-shadow: 0 2px 16px rgba(0,0,0,0.9);
-    --divider-thickness: 4px;
-    --divider-radius: 2px;
-    --divider-width: 100%;
     --banner-heading: 'Roboto Slab', sans-serif;
     --font-heading: 'Roboto Slab', sans-serif;
     --font-body: 'Roboto', sans-serif;
     --font-weight-body: 500;
     --font-size-body: clamp(14px, 3vw, 16px);
     --font-size-small: clamp(11px, 2.5vw, 13px);
-    --font-size-banner: 4em;
-    --font-size-banner-mobile: 3em;
+    --background-semi-transparent: rgba(255, 255, 255, 0.6);
+    --backgdrop-filter: blur(6px);
 }
 
 body, html {
@@ -53,11 +46,11 @@ body, html {
     right: 0;
     margin: 0 auto 24px auto;
     text-align: center;
-    color: #fff;
-    letter-spacing: 2px;
+    color: var(--background-semi-transparent);
+    backdrop-filter: var(--backgdrop-filter);
     font-family: var(--banner-heading);
-    font-size: var(--font-size-banner-mobile);
-    text-shadow: var(--banner-shadow);
+    font-size: 3em;
+    letter-spacing: 2px;
 }
 
 .postcard {
@@ -65,101 +58,113 @@ body, html {
     width: calc(100% - 32px);
     max-width: 720px;
     height: auto;
-    background: rgba(243, 231, 205, 0.69);
-    box-shadow: var(--card-shadow);
-    border-radius: var(--card-radius);
-    padding: var(--card-padding);
+    background: var(--background-semi-transparent);
+    backdrop-filter: var(--backgdrop-filter);
+    -webkit-backdrop-filter: var(--backgdrop-filter);
+    border-radius: 8px;
+    padding: 24px;
     margin: 16px auto;
     box-sizing: border-box;
     cursor: default;
     user-select: text;
     word-wrap: break-word;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transform: none;
+   
 }
 .postcard-divider {
     border: none;
-    border-top: var(--divider-thickness) solid var(--main-green);
-    width: var(--divider-width);
-    margin: 12px 0 18px 0;
-    border-radius: var(--divider-radius);
+    border-top: 4px solid var(--main-green);
+    width: 100%;
+    margin: 12px 0 16px 0;
+    border-radius: 4px;
     background: none;
 }
-.postcard h2 {
-    font-family: var(--font-heading);
-    color: var(--main-green);
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-size: clamp(14px, 3.5vw, 18px); /* Dynamic scaling */
-    text-transform: uppercase;
+    .postcard h2 {
+        font-family: var(--font-heading);
+        color: var(--main-green);
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-size: clamp(14px, 3.5vw, 18px); /* Dynamic scaling */
+        text-transform: uppercase;
+    }
+    .postcard h3 {
+        font-family: var(--font-heading);
+        color: #15150F;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        font-size: clamp(13px, 3vw, 16px); /* Dynamic scaling */
+        padding: 0;
+    }
+    .postcard p {
+        font-family: var(--font-body);
+        font-weight: var(--font-weight-body);
+        font-size: var(--font-size-body);
+        color: #15150F;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2rem;
+        text-align: left;
+    }
+    .postcard small {
+        font-family: var(--font-body);
+        font-weight: var(--font-weight-body);
+        font-size: var(--font-size-small);
+        display: block;
+        color: #15150F;
+        padding: 0;
+        line-height: 1.2rem;
+        text-align: left;
+    }
+    .postcard li {
+        font-family: var(--font-body);
+        font-weight: var(--font-weight-body);
+        font-size: var(--font-size-body);
+        color: #15150F;
+        line-height: 1.2rem;
+        padding-left: 0;
+        text-indent: 0;
+        text-align: left;
+        margin-bottom: 8px; /* Space between list items */
+    }
+    .postcard ol,
+    .postcard ul {
+        padding-left: 1.5em;
+        margin-left: 0;
+    }
+    .postcard img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px; 
+        margin: 0 auto;     /* Optional: center image */
+    }
+
+    .postcard a {
+        font-family: var(--font-body);
+        font-weight: var(--font-weight-body);
+        font-size: var(--font-size-body);
+        color: #23395d;
+        text-decoration: underline;
+    }
+    .postcard a:hover, a:focus {
+        color: #15150F;
+    }
+
+
+
+.hipcamp-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0;
 }
-.postcard h3 {
-    font-family: var(--font-heading);
-    color: #15150F;
-    margin-top: 16px;
-    margin-bottom: 8px;
-    font-size: clamp(13px, 3vw, 16px); /* Dynamic scaling */
-    padding: 0;
-}
-.postcard p {
-    font-family: var(--font-body);
-    font-weight: var(--font-weight-body);
-    font-size: var(--font-size-body);
-    color: #15150F;
-    margin: 0;
-    padding: 0;
-    line-height: 1.2rem;
-    text-align: left;
-}
-.postcard small {
-    font-family: var(--font-body);
-    font-weight: var(--font-weight-body);
-    font-size: var(--font-size-small);
-    display: block;
-    color: #15150F;
-    padding: 0;
-    line-height: 1.2rem;
-    text-align: left;
-}
-.postcard li {
-    font-family: var(--font-body);
-    font-weight: var(--font-weight-body);
-    margin-bottom: 8px; /* Space between list items */
-    font-size: var(--font-size-body);
-    color: #15150F;
-    line-height: 1.2rem;
-    padding-left: 0;
-    text-indent: 0;
-    text-align: left;
-}
-.postcard ol,
-.postcard ul {
-    padding-left: 1.5em;
-    margin-left: 0;
-}
-a {
-    color: #23395d;
-    text-decoration: underline;
-}
-a:hover, a:focus {
-    color: #15150F;
-}
-.copyable, .copyable * {
-    font-family: var(--font-body);
-    font-weight: bold;
-    font-size: var(--font-size-body);
-    user-select: text !important;
-    cursor: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-    -ms-user-select: text !important;
-    pointer-events: auto !important;
-}
-.postcard img {
-    max-width: 100%;
+
+.hipcamp-logo-wrapper img {
+    width: 80%;
+    max-width: 120px;
     height: auto;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    padding: 8px;
     display: block;
-    border-radius: 6px; /* Optional: matches card rounding */
-    margin: 0 auto;     /* Optional: center image */
 }
+
