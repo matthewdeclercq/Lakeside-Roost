@@ -153,6 +153,14 @@ body, html {
     .postcard a:hover, a:focus {
         color: #15150F;
     }
+    .postcard .stepImage {
+        max-width: 200px;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 4px;
+        margin-left: 0px;
+        display: block; 
+    }
 
 
 
