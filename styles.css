@@ -4,14 +4,14 @@
     --main-green: #bc1f1b;
     --main-green-light: #3a6b54;
     --main-bg: #f3e7cd;
-    --accent-brown: #d2b48c;
+    --accent-brown: #c7a981;
     --banner-heading: 'Roboto Slab', sans-serif;
     --font-heading: 'Roboto Slab', sans-serif;
     --font-body: 'Roboto', sans-serif;
     --font-weight-body: 500;
     --font-size-body: clamp(14px, 3vw, 16px);
     --font-size-small: clamp(11px, 2.5vw, 13px);
-    --background-semi-transparent: rgba(255, 255, 255, 0.6);
+    --background-semi-transparent: rgba(255, 255, 255, 0.5);
     --backgdrop-filter: blur(6px);
 }
 
@@ -39,8 +39,15 @@ body, html {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: -1;
-    background: url('images/bg.jpg') center center / cover no-repeat;
     background-color: var(--accent-brown);
+    background-image: 
+        radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse at center, rgba(188, 31, 27, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse at center, rgba(58, 107, 84, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse at center, rgba(139, 188, 143, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse at center, rgba(34, 139, 34, 0.06) 0%, transparent 70%);
+    background-size: 100px 100px, 200px 200px, 150px 150px, 250px 250px, 180px 180px;
+    background-position: 0 0, 50px 50px, 25px 25px, 75px 75px, 40px 40px;
     pointer-events: none;
 }
 
